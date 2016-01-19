@@ -94,7 +94,14 @@ class Calendar {
 
                                         $content.=$this->_showDay($i*7+$j);
                                     }
+class Calendar {
 
+    /**
+     * Constructor
+     */
+    public function __construct(){
+        $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
+    }
                                 }
 
                                 $content.='</ul>';
@@ -123,7 +130,7 @@ class Calendar {
 
             }
         }
-        
+
         if( ($this->currentDay!=0)&&($this->currentDay<=$this->daysInMonth) ){
 
             $this->currentDate = date('Y-m-d',strtotime($this->currentYear.'-'.$this->currentMonth.'-'.($this->currentDay)));
