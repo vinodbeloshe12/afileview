@@ -21,37 +21,7 @@ $last = getdate($end);
 
 ?>
 
-<?php
-class Calendar {
 
-    /**
-     * Constructor
-     */
-    public function __construct(){
-        $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
-    }
-
-    private function _createNavi(){
-
-        $nextMonth = $this->currentMonth==12?1:intval($this->currentMonth)+1;
-
-        $nextYear = $this->currentMonth==12?intval($this->currentYear)+1:$this->currentYear;
-
-        $preMonth = $this->currentMonth==1?12:intval($this->currentMonth)-1;
-
-        $preYear = $this->currentMonth==1?intval($this->currentYear)-1:$this->currentYear;
-
-        return
-            '<div class="header">'.
-                '<a class="prev" href="'.$this->naviHref.'?month='.sprintf('%02d',$preMonth).'&year='.$preYear.'">Prev</a>'.
-                    '<span class="title">'.date('Y M',strtotime($this->currentYear.'-'.$this->currentMonth.'-1')).'</span>'.
-                '<a class="next" href="'.$this->naviHref.'?month='.sprintf("%02d", $nextMonth).'&year='.$nextYear.'">Next</a>'.
-            '</div>';
-    }
-
-
-  }
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -71,12 +41,13 @@ class Calendar {
    border: 1px solid #333333;
 }
 .calendar .monheader {
-   font-weight: bold;
-   color: #FFFFFF;
-   text-align: center;
-   height: 20px;
-   width: 560px;
-   background-color: #333333;
+  font-weight: bold;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 5px;
+      height: 30px;
+      width: 560px;
+      background-color: #F44336;
 }
 .calendar .dayheader {
    font-weight: bold;
